@@ -1,0 +1,10 @@
+{% extends "country/base.html" %}
+
+{% block content %}
+<div class="detail">
+    <h1>{{ articles.title }}</h1>
+    {% comment %} <h2>{{ articles.date|date:"j E Y"}}</h2> {% endcomment %}
+    {{ articles.description|safe}}
+</div>
+
+{% endblock content %}

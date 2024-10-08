@@ -1,0 +1,18 @@
+{% extends "country/base.html" %}
+
+
+{% block content %}
+
+<h1>Статьи о путешествиях</h1>
+
+{% for article in articles %}
+<div class="element">
+    <h2 class='top'><a href="{% url "detail" article.id %}">{{ article.title }}</a></h2>
+    <div class="blog_text">
+        <h5><p>Статья добавлена:</p>{{ article.date|date:"d.m.Y" }}</h5>
+        <p>{{ article.description|striptags|truncatechars:360 }}</p>
+    </div>    
+</div>
+
+{% endfor %}
+{% endblock content %}
