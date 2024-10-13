@@ -7,6 +7,18 @@
         <img src="{% static "country/288.jpg" %}" alt="">
 </div>  
 
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+        <form class="d-flex align-items-center" role="search" action="{% url 'countries' %}">
+            <div class="input-group">
+                <input id='search' class="form-control me-2" type="search" placeholder="Search" aria-label="Search"   name="search_query" value="{{ search_query }}">
+                <button id="btn2" class="btn btn-outline-success" type="submit">Поиск</button>
+            </div>
+        </form>
+    </div>
+</nav>
+
+
 <h1>Достопримечательности различных стран мира:</h1>
 
 <div class="block">
@@ -21,7 +33,14 @@
             <h2><a href="{{country.url}}" target="_blank">{{country.title}}</a></h2>
             <p>{{ country.description}}</p>
         </div>
+        {% if request.user.is_authenticated %} 
+        <a class="btn btn-warning" href="{% url 'update-country' country.id %}">Edit</a>
+        <a class="btn btn-danger" href="{% url "delete-country" country.id %}">Delete</a>
+        {% endif %}
+
     </div>
     {% endfor %}
 </div>
-{% endblock content %}
+{% endblock content %}  
+
+

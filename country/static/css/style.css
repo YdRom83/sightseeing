@@ -16,26 +16,22 @@ body {
     box-sizing: border-box;
 }
 
-.block {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin-bottom: 60px;
-}
+
 
 .element {
     flex-basis: 360px;
-}
+} 
+
+
+
 .element, .count {
     background: lightyellow;
-    /* border: 6px solid #cac721; */
     border-radius: 12px;
     margin: 20px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 .block img {
     max-width: 360px;
-    /* border-radius: 12px; */
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 
@@ -84,6 +80,7 @@ body {
 }
 
 .blog_text {
+    padding-top: 5px;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -95,6 +92,9 @@ body {
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
+
+
+
 .logo img {
     
     width: 115px;
@@ -212,4 +212,53 @@ input[type="file"] {
     height: 46px;
     border-radius: 5px;
     margin-left: 90px;
+}
+
+
+.block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 60px;
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 31%;
+    min-height: 400px; 
+    margin: 10px;
+    box-sizing: border-box; 
+}
+
+.text {
+    flex-grow: 1; 
+}
+
+.element button {
+    width: 100%; 
+    margin-top: 10px; 
+}
+
+.element div {
+    margin-bottom: 10px; 
+}
+
+/* Search */
+
+#search {
+    width: 920px;
+    
+}
+
+#btn2 {
+    width: 150px;
+}
+.btn-e {
+    width: 200px;
+    margin-top: 20px;
+    margin-right: 20px;
+    /* margin-left: 50px; */
+    
 }

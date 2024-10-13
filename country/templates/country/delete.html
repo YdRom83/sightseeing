@@ -1,0 +1,14 @@
+{% extends "country/base.html" %}
+
+
+
+{% block content %}
+<div class="form-container">
+    <form class="form" method="POST">
+        {% csrf_token %}
+        <p>Вы уверены, что хотите удалить это <b>"{{ country }}"</b>?</p>
+        <a class="btn btn--sub btn--lg  my-md" href="{% url "index" %}" style="background-color: #91c27a; margin-bottom: 15px">Назад</a>
+        <input class="btn btn--sub btn--lg  my-md" style="background-color: #b32323" type="submit" value="Удалить" />
+    </form>
+</div>
+{% endblock %}
