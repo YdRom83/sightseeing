@@ -259,6 +259,27 @@ input[type="file"] {
     width: 200px;
     margin-top: 20px;
     margin-right: 20px;
-    /* margin-left: 50px; */
-    
 }
+
+
+
+
+
+/* $$$$ */
+.detail {
+    overflow: hidden; /* Чтобы родительский элемент учитывал плавающий элемент */
+}
+
+ .d2 img {
+    float: left; 
+    margin-right: 20px; 
+    max-width: 450px;  
+} 
+
+/* .text {
+    font-size: 20px;
+} */
+
+
+
+

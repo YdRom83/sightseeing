@@ -1,0 +1,20 @@
+{% extends "country/base.html" %}
+
+{% comment %} {% block content %}
+    <div class="detail d2" >
+        <img src="{{ country.image.url }}" alt="">
+
+        <h1>{{ country.title }}</h1>
+        {{ country.description|safe}}
+    </div>
+{% endblock  %} {% endcomment %}
+{% block content %}
+<div class="detail d2">
+    <img src="{{ country.image.url }}" alt="">
+
+    <div class="text">
+        <h1>{{ country.title }}</h1>
+        {{ country.description|safe }}
+    </div>
+</div>
+{% endblock %}

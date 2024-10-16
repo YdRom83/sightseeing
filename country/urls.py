@@ -5,6 +5,7 @@ from country import views
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path('<int:country_id>/', views.detail, name='country-detail'),
     path("create-country/", views.create_country, name="create-country"),
     path("countries/", views.countries, name="countries"),
     path('login/', views.login_user, name='login'),

@@ -25,12 +25,12 @@
     {% for country in countries %}
     <div class="element">
         
-        <div>
-            <img src="{{ country.image.url }}" alt="">
+        <div class="image">
+           <a href="{% url "country-detail" country.id %}"><img src="{{ country.image.url }}" alt=""></a> 
         </div>
 
         <div class="text">
-            <h2><a href="{{country.url}}" target="_blank">{{country.title}}</a></h2>
+            <h2><a href="{% url "country-detail" country.id %}" >{{country.title}}</a></h2>
             <p>{{ country.description}}</p>
         </div>
         {% if request.user.is_authenticated %} 
@@ -40,7 +40,9 @@
 
     </div>
     {% endfor %}
-</div>
+</div> 
+
+
 {% endblock content %}  
 
 

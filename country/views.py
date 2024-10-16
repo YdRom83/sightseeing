@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
@@ -13,6 +13,10 @@ def index(request):
     countries = Country.objects.all()
     return render(request, "country/index.html", {"countries": countries})
 
+
+def detail(request, country_id):
+    country = get_object_or_404(Country, pk=country_id)
+    return render(request, "country/details.html", {"country": country})
 
 def countries(request):
     search_query = request.GET.get("search_query", "")
