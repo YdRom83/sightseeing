@@ -261,13 +261,8 @@ input[type="file"] {
     margin-right: 20px;
 }
 
-
-
-
-
-/* $$$$ */
 .detail {
-    overflow: hidden; /* Чтобы родительский элемент учитывал плавающий элемент */
+    overflow: hidden; 
 }
 
  .d2 img {
@@ -276,10 +271,29 @@ input[type="file"] {
     max-width: 450px;  
 } 
 
-/* .text {
-    font-size: 20px;
-} */
 
+.button-container {
+    display: flex; /* Используем flexbox для выравнивания кнопок */
+    justify-content: flex-end; /* Прижать кнопки к правому краю */
+    margin-top: 20px; 
+    width: 100%; 
+}
 
+.btn-e {
+    width: 200px; 
+    margin-left: 10px; 
+}
 
+.btn-custom {
+    width: 200px;
+    height: 38.21px;
+    margin-right: 20px; 
+    margin-top: 20px; 
 
+    background-color: #28a745; 
+    color: white; 
+}
+
+.btn-custom:hover {
+    background-color: #218838; 
+}

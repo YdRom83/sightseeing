@@ -7,11 +7,26 @@ from country.forms import CountryForm
 from country.models import Country
 from django.contrib import messages
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def index(request):
+    page = request.GET.get('page', 1)
     countries = Country.objects.all()
-    return render(request, "country/index.html", {"countries": countries})
+    paginator = Paginator(countries, 3)
+    current_page = paginator.page(page)
+
+    try:
+        current_page = paginator.page(page)
+    except PageNotAnInteger:
+        current_page = paginator.page(1)
+    except EmptyPage:
+        current_page = paginator.page(paginator.num_pages)
+
+    context = {
+        "countries": current_page,
+    }
+    return render(request, "country/index.html", context)
 
 
 def detail(request, country_id):

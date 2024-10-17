@@ -3,7 +3,7 @@ from django.db import models
 
 class Country(models.Model):
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=255)
+    description = models.TextField()
     image = models.ImageField(upload_to="country/images/")
     url = models.URLField(blank=True)
 

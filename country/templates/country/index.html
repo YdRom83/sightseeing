@@ -3,9 +3,9 @@
 
 
 {% block content %}
-<div class="img"> 
+{% comment %} <div class="img"> 
         <img src="{% static "country/288.jpg" %}" alt="">
-</div>  
+</div>   {% endcomment %}
 
 <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
@@ -31,18 +31,40 @@
 
         <div class="text">
             <h2><a href="{% url "country-detail" country.id %}" >{{country.title}}</a></h2>
-            <p>{{ country.description}}</p>
+            <p>{{ country.description |truncatechars:148}}</p>
         </div>
-        {% if request.user.is_authenticated %} 
-        <a class="btn btn-warning" href="{% url 'update-country' country.id %}">Edit</a>
-        <a class="btn btn-danger" href="{% url "delete-country" country.id %}">Delete</a>
-        {% endif %}
+       
 
     </div>
     {% endfor %}
 </div> 
 
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {% if not countries.has_previous %}disabled{% endif %} ">
 
+        {% if countries.has_previous %}
+          <a class="page-link" href="?page={{ countries.previous_page_number }}">Назад</a>
+          {% else %}
+            <span class="page-link">Назад</span>
+        {% endif %}
+      </li>
+
+      {% for page in countries.paginator.page_range %}
+        <li class="page-item {% if page == countries.number %}active{% endif %} ">
+          <a class="page-link" href="?page={{ page }}">{{ page }}</a>
+        </li>
+      {% endfor %}
+      
+      <li class="page-item {% if not countries.has_next %}disabled{% endif %}">
+        {% if countries.has_next %}
+          <a class="page-link" href="?page={{ countries.next_page_number }}">Следующая</a>
+        {% else %}
+          <span class="page-link">Следующая</span>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
 {% endblock content %}  
 
 
